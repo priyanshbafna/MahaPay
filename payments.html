@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahapay - Payment Gateway</title>
+    <link rel="stylesheet" href="/CSS/payments.css">
+</head>
+<body>
+    <div class="container">
+        <div class="left-panel">
+            <h1>Mahapay</h1>
+            <p>Order Id: <span id="orderId">123456</span></p>
+            <p>Merchant Name: <span id="merchantName">ABC Store</span></p>
+            <div class="amount-details">
+                <p>Order Amount: <span id="orderAmount">$100.00</span></p>
+                <p>Transaction Fee: <span id="transactionFee">$2.00</span></p>
+                <p>Tax: <span id="tax">$1.50</span></p>
+                <hr>
+                <p>Total Amount: <span id="totalAmount">$103.50</span></p>
+            </div>
+        </div>
+        <div class="right-panel">
+            <div class="payment-method">
+                <button id="cardBtn" class="toggle-button" onclick="showCardPayment()">Card Payment</button>
+                <button id="netBankingBtn" class="toggle-button" onclick="showNetBanking()">Net Banking</button>
+                <button id="upiBtn" class="toggle-button" onclick="showUPI()">UPI</button>
+            </div>
+            <div id="cardPayment" class="payment-form">
+                <label for="cardNo">Card No:</label>
+                <input type="text" id="cardNo" name="cardNo">
+                <label for="expiryDateMM">Expiry Date (MM):</label>
+                <input type="text" id="expiryDateMM" name="expiryDateMM">
+                <label for="expiryDateYYYY">Expiry Date (YYYY):</label>
+                <input type="text" id="expiryDateYYYY" name="expiryDateYYYY">
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" name="cvv">
+            </div>
+            <div id="netBanking" class="payment-form" style="display:none;">
+                <label for="bankName">Bank Name:</label>
+                <select id="bankName" name="bankName">
+                    <!-- Add your bank options here -->
+                    <option value="Abhyudaya Co-op Bank">Abhyudaya Co-op Bank</option>
+                    <option value="The Ahmednagar District Central Co-op Bank Ltd">The Ahmednagar District Central Co-op Bank Ltd</option>
+                    <option value="Ahmednagar Merchants Co-op Bank Ltd">Ahmednagar Merchants Co-op Bank Ltd</option>
+                    <option value="AP Mahesh Co-op Bank Ltd">AP Mahesh Co-op Bank Ltd</option>
+                    <option value="Apna Sahakari Bank Ltd">Apna Sahakari Bank Ltd</option>
+                    <option value="AU Small Finance Bank">AU Small Finance Bank</option>
+                    <option value="Bank of Baroda">Bank of Baroda</option>
+                    <option value="Bank of India">Bank of India</option>
+                    <option value="Bank of Maharashtra">Bank of Maharashtra</option>
+                    <option value="Bapuji Co-op Bank Ltd">Bapuji Co-op Bank Ltd</option>
+                    <option value="Bhavani Sahakari Bank Ltd">Bhavani Sahakari Bank Ltd</option>
+                    <option value="Bhawanipatna Co-op Bank Ltd">Bhawanipatna Co-op Bank Ltd</option>
+                    <option value="BOB Financial">BOB Financial</option>
+                    <option value="Boudh Central Co-op Bank Ltd">Boudh Central Co-op Bank Ltd</option>
+                    <option value="Canara Bank">Canara Bank</option>
+                    <option value="Citizen Co-op Bank Ltd">Citizen Co-op Bank Ltd</option>
+                    <option value="City Union Bank">City Union Bank</option>
+                    <option value="Cuttack Central Co-op Bank Ltd">Cuttack Central Co-op Bank Ltd</option>
+                    <option value="Development Co-op Bank Ltd">Development Co-op Bank Ltd</option>
+                    <option value="Dombivli Nagari Sahakari Bank Ltd">Dombivli Nagari Sahakari Bank Ltd</option>
+                    <option value="EBIX Payment Services Pvt Ltd">EBIX Payment Services Pvt Ltd</option>
+                    <option value="Equitas Small Finance Bank">Equitas Small Finance Bank</option>
+                    <option value="Federal Bank">Federal Bank</option>
+                    <option value="Fino Payments Bank">Fino Payments Bank</option>
+                    <option value="Gopinath Patil Parsik Janata Sahakari Bank Ltd">Gopinath Patil Parsik Janata Sahakari Bank Ltd</option>
+                    <option value="IDBI Bank">IDBI Bank</option>
+                    <option value="IDFC Bank FSS">IDFC Bank FSS</option>
+                    <option value="Indian Bank">Indian Bank</option>
+                    <option value="Indian Overseas Bank">Indian Overseas Bank</option>
+                    <option value="Janakalyan Sahakari Bank Ltd">Janakalyan Sahakari Bank Ltd</option>
+                    <option value="Janaseva Sahakari Bank (Borivli) Ltd">Janaseva Sahakari Bank (Borivli) Ltd</option>
+                    <option value="Janaseva Sahakari Bank Ltd (Pune)">Janaseva Sahakari Bank Ltd (Pune)</option>
+                    <option value="Janata Sahakari Bank Ltd (Ajara)">Janata Sahakari Bank Ltd (Ajara)</option>
+                    <option value="Janata Sahakari Bank Ltd (Pune)">Janata Sahakari Bank Ltd (Pune)</option>
+                    <option value="Jawhar Urban Co-op Bank Ltd">Jawhar Urban Co-op Bank Ltd</option>
+                    <option value="Jharkhand State Co-op Bank Ltd">Jharkhand State Co-op Bank Ltd</option>
+                    <option value="Karur Vysya Bank">Karur Vysya Bank</option>
+                    <option value="Keonjhar Central Co-op Bank Ltd">Keonjhar Central Co-op Bank Ltd</option>
+                    <option value="Kerala Gramin Bank">Kerala Gramin Bank</option>
+                    <option value="Khurdha Central Co-op Bank Ltd">Khurdha Central Co-op Bank Ltd</option>
+                    <option value="Kokan Mercantile Co-op Bank Ltd">Kokan Mercantile Co-op Bank Ltd</option>
+                    <option value="Koraput Central Co-op Bank Ltd">Koraput Central Co-op Bank Ltd</option>
+                    <option value="Krishna Bhima Samruddhi Local Area Bank Ltd">Krishna Bhima Samruddhi Local Area Bank Ltd</option>
+                    <option value="Mahanagar Co-op Bank Ltd">Mahanagar Co-op Bank Ltd</option>
+                    <option value="Maharashtra Gramin Bank">Maharashtra Gramin Bank</option>
+                    <option value="Nagpur Nagarik Sahakari Bank Ltd">Nagpur Nagarik Sahakari Bank Ltd</option>
+                    <option value="Nashik Merchant's Co-op Bank Ltd">Nashik Merchant's Co-op Bank Ltd</option>
+                    <option value="Nawanagar Co-op Bank Ltd">Nawanagar Co-op Bank Ltd</option>
+                    <option value="Nayagarh Central Co-op Bank Ltd">Nayagarh Central Co-op Bank Ltd</option>
+                    <option value="NKGSB Co-op Bank Ltd">NKGSB Co-op Bank Ltd</option>
+                    <option value="Odisha Gramya Bank">Odisha Gramya Bank</option>
+                    <option value="OIC">OIC</option>
+                    <option value="Paschim Banga Gramin Bank">Paschim Banga Gramin Bank</option>
+                    <option value="Paytm Payments Bank">Paytm Payments Bank</option>
+                    <option value="Pondicherry State Co-op Bank Ltd">Pondicherry State Co-op Bank Ltd</option>
+                    <option value="Punjab & Sind Bank">Punjab & Sind Bank</option>
+                    <option value="Punjab National Bank">Punjab National Bank</option>
+                    <option value="RBL Bank">RBL Bank</option>
+                    <option value="Reserve Bank of India">Reserve Bank of India</option>
+                    <option value="Samarth Sahakari Bank Ltd">Samarth Sahakari Bank Ltd</option>
+                    <option value="Saraswat Bank">Saraswat Bank</option>
+                    <option value="Sarjeraodada Naik Shirala Sahakari Bank Ltd">Sarjeraodada Naik Shirala Sahakari Bank Ltd</option>
+                    <option value="Shikshak Sahakari Bank Ltd">Shikshak Sahakari Bank Ltd</option>
+                    <option value="Shree Warana Sahakari Bank Ltd">Shree Warana Sahakari Bank Ltd</option>
+                    <option value="Shri Chhatrapati Rajashri Shahu Urban Co-op Bank Ltd">Shri Chhatrapati Rajashri Shahu Urban Co-op Bank Ltd</option>
+                    <option value="Shri Kanyaka Nagari Sahakari Bank Ltd">Shri Kanyaka Nagari Sahakari Bank Ltd</option>
+                    <option value="Solapur Janata Sahakari Bank Ltd">Solapur Janata Sahakari Bank Ltd</option>
+                    <option value="State Bank of India">State Bank of India</option>
+                    <option value="SVC Co-op Bank Ltd">SVC Co-op Bank Ltd</option>
+                    <option value="TJSB Sahakari Bank Ltd">TJSB Sahakari Bank Ltd</option>
+                    <option value="The Adarsh Co-op Urban Bank Ltd">The Adarsh Co-op Urban Bank Ltd</option>
+                    <option value="The Adinath Co-op Bank Ltd">The Adinath Co-op Bank Ltd</option>
+                    <option value="The Akola District Central Co-op Bank Ltd">The Akola District Central Co-op Bank Ltd</option>
+                    <option value="The Andhra Pradesh State Co-op Bank Ltd">The Andhra Pradesh State Co-op Bank Ltd</option>
+                    <option value="The Baramati Co-op Bank Ltd">The Baramati Co-op Bank Ltd</option>
+                    <option value="The Bombay Mercantile Co-op Bank Ltd">The Bombay Mercantile Co-op Bank Ltd</option>
+                    <option value="The Gadchiroli District Central Co-op Bank Ltd">The Gadchiroli District Central Co-op Bank Ltd</option>
+                    <option value="The Gujarat State Co-op Bank Ltd">The Gujarat State Co-op Bank Ltd</option>
+                    <option value="The Jalgaon District Central Co-op Bank Ltd">The Jalgaon District Central Co-op Bank Ltd</option>
+                    <option value="The Jammu & Kashmir Bank Ltd">The Jammu & Kashmir Bank Ltd</option>
+                    <option value="The Kalupur Commercial Co-op Bank Ltd">The Kalupur Commercial Co-op Bank Ltd</option>
+                    <option value="The Kangra Central Co-op Bank Ltd">The Kangra Central Co-op Bank Ltd</option>
+                    <option value="The Kapol Co-op Bank Ltd">The Kapol Co-op Bank Ltd</option>
+                    <option value="The Karad Urban Co-op Bank Ltd">The Karad Urban Co-op Bank Ltd</option>
+                    <option value="The Karnataka State Co-op Apex Bank Ltd">The Karnataka State Co-op Apex Bank Ltd</option>
+                    <option value="The Karnataka State Co-op Bank Ltd">The Karnataka State Co-op Bank Ltd</option>
+                    <option value="The Karanataka Vikas Grameena Bank">The Karanataka Vikas Grameena Bank</option>
+                    <option value="The Latur Urban Co-op Bank Ltd">The Latur Urban Co-op Bank Ltd</option>
+                    <option value="The Nasik Merchants Co-op Bank Ltd">The Nasik Merchants Co-op Bank Ltd</option>
+                    <option value="The Prathama UP Gramin Bank">The Prathama UP Gramin Bank</option>
+                    <option value="The Rajasthan State Co-op Bank Ltd">The Rajasthan State Co-op Bank Ltd</option>
+                    <option value="The Raigad Sahakari Bank Ltd">The Raigad Sahakari Bank Ltd</option>
+                    <option value="The Ratnakar Bank Ltd">The Ratnakar Bank Ltd</option>
+                    <option value="The Sangli Urban Co-op Bank Ltd">The Sangli Urban Co-op Bank Ltd</option>
+                    <option value="The South Indian Bank Ltd">The South Indian Bank Ltd</option>
+                    <option value="The Surat District Co-op Bank Ltd">The Surat District Co-op Bank Ltd</option>
+                    <option value="The Surat People's Co-op Bank Ltd">The Surat People's Co-op Bank Ltd</option>
+                    <option value="The Tamil Nadu State Apex Co-op Bank Ltd">The Tamil Nadu State Apex Co-op Bank Ltd</option>
+                    <option value="The Thane Bharat Sahakari Bank Ltd">The Thane Bharat Sahakari Bank Ltd</option>
+                    <option value="The Thane District Central Co-op Bank Ltd">The Thane District Central Co-op Bank Ltd</option>
+                    <option value="The Thane Janata Sahakari Bank Ltd">The Thane Janata Sahakari Bank Ltd</option>
+                    <option value="The Vaidyanath Urban Co-op Bank Ltd">The Vaidyanath Urban Co-op Bank Ltd</option>
+                    <option value="The Varachha Co-op Bank Ltd">The Varachha Co-op Bank Ltd</option>
+                    <option value="The Vishweshwar Sahakari Bank Ltd">The Vishweshwar Sahakari Bank Ltd</option>
+                    <option value="The Wardha District Central Co-op Bank Ltd">The Wardha District Central Co-op Bank Ltd</option>
+                    <option value="The West Bengal State Co-op Bank Ltd">The West Bengal State Co-op Bank Ltd</option>
+                    <option value="UCO Bank">UCO Bank</option>
+                    <option value="Union Bank of India">Union Bank of India</option>
+                    <option value="Utkarsh Small Finance Bank">Utkarsh Small Finance Bank</option>
+                    <option value="Vasai Vikas Sahakari Bank Ltd">Vasai Vikas Sahakari Bank Ltd</option>
+                    <option value="Yes Bank">Yes Bank</option>
+                    <option value="Zila Sahakari Bank Ltd (Ghaziabad)">Zila Sahakari Bank Ltd (Ghaziabad)</option>
+                </select>
+            </div>
+            <div id="upiPayment" class="payment-form" style="display:none;">
+                <label for="upiId">Enter UPI ID:</label>
+                <input type="text" id="upiId" name="upiId">
+                <div class="qr-code">
+                    <p>Scan QR Code:</p>
+                    <img src="/img_index/qr.webp" alt="QR Code">
+                </div>
+            </div>
+            <div class="pay-now-button">
+                <button class="pay-now-button" onclick="payNow()">Pay Now</button>
+            </div>
+        </div>
+    </div>
+    <script src="/JS/payments.js"></script>
+</body>
+</html>
