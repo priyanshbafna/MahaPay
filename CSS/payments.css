@@ -1,0 +1,151 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    /* background-color: #f4f4f4; */
+    background-color: #6e8efb;
+}
+
+.container {
+    display: flex;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    width: 90%;
+    max-width: 100%;
+    flex-direction: row;
+}
+
+.left-panel, .right-panel {
+    padding: 20px;
+    width: 50%;
+}
+
+.left-panel {
+    border-right: 1px solid #ddd;
+}
+
+h1 {
+    margin: 0 0 20px;
+}
+
+.amount-details {
+    margin-top: 20px;
+}
+
+.amount-details p {
+    margin: 10px 0;
+}
+
+.payment-method {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.toggle-button {
+    flex: 1;
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.payment-form {
+    margin-top: 20px;
+}
+
+.payment-form label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+.payment-form input, .payment-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.qr-code {
+    text-align: center;
+}
+
+.qr-code img {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+}
+
+#upiId{
+    width: 600px;
+}
+
+@media (max-width: 767px) {
+    .container {
+        flex-direction: column;
+        width: 100%;
+        margin: 0 10px;
+        margin-top: 100px;
+    }
+
+    .left-panel, .right-panel {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .left-panel {
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .toggle-button {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .payment-form input, .payment-form select {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .payment-method {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    /* Existing CSS styles */
+
+.pay-now-button {
+    text-align: center;
+    margin-top: 20px;
+    
+}
+
+.pay-now-button button {
+    padding: 12px 24px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.pay-now-button button:hover {
+    background-color: #45a049;
+}
+
+
+}

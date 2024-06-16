@@ -1,0 +1,133 @@
+/* Navbar CSS */
+
+.sidebar {
+    width: 250px;
+    height: 100%;
+    background-color: #2d3e50;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+    transition: transform 0.3s ease-in-out;
+}
+
+.sidebar-content {
+    width: 100%;
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo h1 {
+    font-size: 24px;
+}
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+}
+
+.nav-links li {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    transition: background 0.3s;
+}
+
+.nav-links a i {
+    margin-right: 10px;
+}
+
+.nav-links a:hover {
+    background-color: #1a2839;
+}
+
+.auth-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.auth-buttons button {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.login-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.login-btn:hover {
+    background-color: #45a049;
+}
+
+.signup-btn {
+    background-color: #008CBA;
+    color: white;
+}
+
+.signup-btn:hover {
+    background-color: #007bb5;
+}
+
+.dropdown-hidden {
+    display: none;
+}
+
+.dropdown-visible {
+    display: block;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 10px;
+        transform: translateX(0);
+    }
+
+    .nav-links {
+        flex-direction: row;
+    }
+
+    .nav-links li {
+        margin: 0;
+    }
+
+    .nav-links a {
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    .auth-buttons {
+        flex-direction: row;
+    }
+
+    .auth-buttons button {
+        margin: 0 5px;
+        width: auto;
+        padding: 5px 10px;
+    }
+}
